@@ -10,11 +10,10 @@ from services.user_service import insert_primary_presence
 
 app = typer.Typer()
 
-# Descomente o código abaixo para criar o banco de dados localmente para testes
-# @app.command()
-# def init_db():
-#     Base.metadata.create_all(bind=engine)
-#     typer.echo("Banco de dados inicializado.")
+@app.command()
+def init_db():
+    Base.metadata.create_all(bind=engine)
+    typer.echo("Banco de dados inicializado.")
 
 
 @app.command()
