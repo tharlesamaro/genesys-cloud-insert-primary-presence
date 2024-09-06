@@ -44,9 +44,6 @@ def _extract_primary_presences(
 
             start_time_converted = convert_date(str(primary_presence.start_time))
 
-            if user_detail.user_id == "2f0ae626-fc2b-4e11-80b5-9869943dc3c0":
-                print(primary_presence.start_time)
-
             primary_presences_list.append(
                 PrimaryPresence(
                     primary_presence_id=f"{user_detail.user_id}_{start_time_converted}",
