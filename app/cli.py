@@ -10,6 +10,7 @@ from services.user_service import insert_primary_presence
 
 app = typer.Typer()
 
+
 @app.command()
 def init_db():
     Base.metadata.create_all(bind=engine)

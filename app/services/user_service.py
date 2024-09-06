@@ -1,16 +1,19 @@
 import logging
 
 from PureCloudPlatformClientV2.models import AnalyticsUserDetail
-from sqlalchemy.exc import SQLAlchemyError, IntegrityError
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from app.genesys.genesys_api_client import GenesysApiClient
 from app.genesys.models import PrimaryPresence
-
 from app.helpers import convert_date
 
-logging.basicConfig(filename='duplicate_records.log', level=logging.ERROR,
-                    format='%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(
+    filename="duplicate_records.log",
+    level=logging.ERROR,
+    format="%(asctime)s:%(levelname)s:%(message)s",
+)
+
 
 def insert_primary_presence(db: Session, interval: str) -> None:
     try:
@@ -40,6 +43,9 @@ def _extract_primary_presences(
                 continue
 
             start_time_converted = convert_date(str(primary_presence.start_time))
+
+            if user_detail.user_id == "2f0ae626-fc2b-4e11-80b5-9869943dc3c0":
+                print(primary_presence.start_time)
 
             primary_presences_list.append(
                 PrimaryPresence(

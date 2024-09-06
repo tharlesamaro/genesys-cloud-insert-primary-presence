@@ -3,8 +3,11 @@ import math
 import PureCloudPlatformClientV2
 from PureCloudPlatformClientV2.api_client import ApiClient
 from PureCloudPlatformClientV2.apis.users_api import UsersApi
-from PureCloudPlatformClientV2.models import (AnalyticsUserDetail, PagingSpec,
-                                              UserDetailsQuery)
+from PureCloudPlatformClientV2.models import (
+    AnalyticsUserDetail,
+    PagingSpec,
+    UserDetailsQuery,
+)
 from PureCloudPlatformClientV2.rest import ApiException
 
 from app.config import get_settings
